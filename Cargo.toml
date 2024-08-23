@@ -1,0 +1,50 @@
+[package]
+name = "pdf417er"
+version = "0.1.0"
+edition = "2021"
+description = "Scanner for PDF417 barcodes"
+repository = "https://github.com/auser/pdf417-scanner"
+authors = ["Ari Lerner <me@ari.io>"]
+homepage = "https://github.com/auser/pdf417-scanner"
+
+[package.metadata.wix]
+upgrade-guid = "0C674B0D-EFD3-4B68-AEC2-D1992EC82764"
+path-guid = "060F1904-32F3-4A0E-B46F-01AD748AEC0A"
+license = false
+eula = false
+
+[dependencies]
+clap = { version = "4.5.16", features = ["derive", "unstable-doc"] }
+env_logger = "0.11.5"
+log = "0.4.22"
+rxing = "0.6.1"
+thiserror = "1.0.63"
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
+# Config for 'cargo dist'
+[workspace.metadata.dist]
+# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
+cargo-dist-version = "0.17.0"
+# CI backends to support
+ci = "github"
+# The installers to generate for each app
+installers = ["shell", "homebrew", "msi"]
+# A GitHub repo to push Homebrew formulas to
+tap = "auser/homebrew"
+# Target platforms to build apps for (Rust target-triple syntax)
+targets = [
+  "aarch64-apple-darwin",
+  "x86_64-apple-darwin",
+  "x86_64-unknown-linux-gnu",
+  "x86_64-pc-windows-msvc",
+]
+# Publish jobs to run in CI
+publish-jobs = ["homebrew"]
+# Publish jobs to run in CI
+pr-run-mode = "plan"
+# Whether to install an updater program
+install-updater = true
