@@ -6,6 +6,7 @@ description = "Scanner for PDF417 barcodes"
 repository = "https://github.com/auser/pdf417-scanner"
 authors = ["Ari Lerner <me@ari.io>"]
 homepage = "https://github.com/auser/pdf417-scanner"
+license = "MIT"
 
 [package.metadata.wix]
 upgrade-guid = "0C674B0D-EFD3-4B68-AEC2-D1992EC82764"
