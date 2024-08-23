@@ -1,6 +1,6 @@
 [package]
 name = "pdf417er"
-version = "0.1.0"
+version = "0.1.3"
 edition = "2021"
 description = "Scanner for PDF417 barcodes"
 repository = "https://github.com/auser/pdf417-scanner"
